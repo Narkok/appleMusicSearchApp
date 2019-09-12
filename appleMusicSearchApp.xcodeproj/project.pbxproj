@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0810A079FC5AA0ACE57F4AC1 /* Pods_appleMusicSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 489DE84C5657682F713FC92F /* Pods_appleMusicSearchApp.framework */; };
+		B862D0A3232ADD3B007C5E2C /* ArtistSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862D0A2232ADD3B007C5E2C /* ArtistSearchViewModel.swift */; };
+		B862D0A6232ADD6B007C5E2C /* ArtistSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862D0A4232ADD6B007C5E2C /* ArtistSearchController.swift */; };
+		B862D0A7232ADD6B007C5E2C /* ArtistSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B862D0A5232ADD6B007C5E2C /* ArtistSearchController.xib */; };
 		B8ADA75823299C320094EA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADA75723299C320094EA83 /* AppDelegate.swift */; };
-		B8ADA75A23299C320094EA83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADA75923299C320094EA83 /* ViewController.swift */; };
-		B8ADA75D23299C320094EA83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8ADA75B23299C320094EA83 /* Main.storyboard */; };
 		B8ADA75F23299C330094EA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADA75E23299C330094EA83 /* Assets.xcassets */; };
 		B8ADA76223299C330094EA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8ADA76023299C330094EA83 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,10 +19,11 @@
 /* Begin PBXFileReference section */
 		3AD6F4562D5703CEDC23BA21 /* Pods-appleMusicSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleMusicSearchApp.release.xcconfig"; path = "Target Support Files/Pods-appleMusicSearchApp/Pods-appleMusicSearchApp.release.xcconfig"; sourceTree = "<group>"; };
 		489DE84C5657682F713FC92F /* Pods_appleMusicSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_appleMusicSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B862D0A2232ADD3B007C5E2C /* ArtistSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewModel.swift; sourceTree = "<group>"; };
+		B862D0A4232ADD6B007C5E2C /* ArtistSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchController.swift; sourceTree = "<group>"; };
+		B862D0A5232ADD6B007C5E2C /* ArtistSearchController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistSearchController.xib; sourceTree = "<group>"; };
 		B8ADA75423299C320094EA83 /* appleMusicSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appleMusicSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ADA75723299C320094EA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B8ADA75923299C320094EA83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B8ADA75C23299C320094EA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B8ADA75E23299C330094EA83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8ADA76123299C330094EA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8ADA76323299C330094EA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B862D0A1232ADC95007C5E2C /* ArtistSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B862D0A2232ADD3B007C5E2C /* ArtistSearchViewModel.swift */,
+				B862D0A4232ADD6B007C5E2C /* ArtistSearchController.swift */,
+				B862D0A5232ADD6B007C5E2C /* ArtistSearchController.xib */,
+			);
+			path = ArtistSearch;
+			sourceTree = "<group>";
+		};
 		B8ADA74B23299C320094EA83 = {
 			isa = PBXGroup;
 			children = (
@@ -79,8 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				B8ADA75723299C320094EA83 /* AppDelegate.swift */,
-				B8ADA75923299C320094EA83 /* ViewController.swift */,
-				B8ADA75B23299C320094EA83 /* Main.storyboard */,
+				B862D0A1232ADC95007C5E2C /* ArtistSearch */,
 				B8ADA75E23299C330094EA83 /* Assets.xcassets */,
 				B8ADA76023299C330094EA83 /* LaunchScreen.storyboard */,
 				B8ADA76323299C330094EA83 /* Info.plist */,
@@ -148,9 +159,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B862D0A7232ADD6B007C5E2C /* ArtistSearchController.xib in Resources */,
 				B8ADA76223299C330094EA83 /* LaunchScreen.storyboard in Resources */,
 				B8ADA75F23299C330094EA83 /* Assets.xcassets in Resources */,
-				B8ADA75D23299C320094EA83 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,22 +233,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8ADA75A23299C320094EA83 /* ViewController.swift in Sources */,
+				B862D0A6232ADD6B007C5E2C /* ArtistSearchController.swift in Sources */,
 				B8ADA75823299C320094EA83 /* AppDelegate.swift in Sources */,
+				B862D0A3232ADD3B007C5E2C /* ArtistSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8ADA75B23299C320094EA83 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B8ADA75C23299C320094EA83 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B8ADA76023299C330094EA83 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -300,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -355,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
