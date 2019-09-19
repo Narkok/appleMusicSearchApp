@@ -11,6 +11,9 @@
 		B862D0A3232ADD3B007C5E2C /* ArtistSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862D0A2232ADD3B007C5E2C /* ArtistSearchViewModel.swift */; };
 		B862D0A6232ADD6B007C5E2C /* ArtistSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862D0A4232ADD6B007C5E2C /* ArtistSearchController.swift */; };
 		B862D0A7232ADD6B007C5E2C /* ArtistSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B862D0A5232ADD6B007C5E2C /* ArtistSearchController.xib */; };
+		B895B07023341B4B003AE994 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895B06F23341B4B003AE994 /* Model.swift */; };
+		B895B07223341E67003AE994 /* AppleMusicAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895B07123341E67003AE994 /* AppleMusicAPIRequest.swift */; };
+		B895B07423342213003AE994 /* AppleMusicDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895B07323342213003AE994 /* AppleMusicDataManager.swift */; };
 		B8ADA75823299C320094EA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADA75723299C320094EA83 /* AppDelegate.swift */; };
 		B8ADA75F23299C330094EA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADA75E23299C330094EA83 /* Assets.xcassets */; };
 		B8ADA76223299C330094EA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8ADA76023299C330094EA83 /* LaunchScreen.storyboard */; };
@@ -22,6 +25,9 @@
 		B862D0A2232ADD3B007C5E2C /* ArtistSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewModel.swift; sourceTree = "<group>"; };
 		B862D0A4232ADD6B007C5E2C /* ArtistSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchController.swift; sourceTree = "<group>"; };
 		B862D0A5232ADD6B007C5E2C /* ArtistSearchController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistSearchController.xib; sourceTree = "<group>"; };
+		B895B06F23341B4B003AE994 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B895B07123341E67003AE994 /* AppleMusicAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicAPIRequest.swift; sourceTree = "<group>"; };
+		B895B07323342213003AE994 /* AppleMusicDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicDataManager.swift; sourceTree = "<group>"; };
 		B8ADA75423299C320094EA83 /* appleMusicSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appleMusicSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ADA75723299C320094EA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8ADA75E23299C330094EA83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +75,16 @@
 			path = ArtistSearch;
 			sourceTree = "<group>";
 		};
+		B895B06E23341ABC003AE994 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				B895B06F23341B4B003AE994 /* Model.swift */,
+				B895B07323342213003AE994 /* AppleMusicDataManager.swift */,
+				B895B07123341E67003AE994 /* AppleMusicAPIRequest.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		B8ADA74B23299C320094EA83 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B8ADA75723299C320094EA83 /* AppDelegate.swift */,
+				B895B06E23341ABC003AE994 /* DataManager */,
 				B862D0A1232ADC95007C5E2C /* ArtistSearch */,
 				B8ADA75E23299C330094EA83 /* Assets.xcassets */,
 				B8ADA76023299C330094EA83 /* LaunchScreen.storyboard */,
@@ -236,6 +253,9 @@
 				B862D0A6232ADD6B007C5E2C /* ArtistSearchController.swift in Sources */,
 				B8ADA75823299C320094EA83 /* AppDelegate.swift in Sources */,
 				B862D0A3232ADD3B007C5E2C /* ArtistSearchViewModel.swift in Sources */,
+				B895B07023341B4B003AE994 /* Model.swift in Sources */,
+				B895B07423342213003AE994 /* AppleMusicDataManager.swift in Sources */,
+				B895B07223341E67003AE994 /* AppleMusicAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

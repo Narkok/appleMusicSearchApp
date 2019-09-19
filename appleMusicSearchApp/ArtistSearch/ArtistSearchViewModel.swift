@@ -6,11 +6,12 @@
 //  Copyright © 2019 NRKK dev.studio. All rights reserved.
 //
 
-import Foundation
 import RxCocoa
 import RxSwift
 
 class ArtistSearchViewModel {
+    
+    private let dataManager = AppleMusicDataManager()
     
     
     struct Input {
@@ -32,5 +33,7 @@ class ArtistSearchViewModel {
             .asDriver(onErrorJustReturn: "Error")
         
 //        output = Output(text: artistToSearch)
+        
+        dataManager.getArtistList(byName: "lana", withOffset: 0)
     }
 }
