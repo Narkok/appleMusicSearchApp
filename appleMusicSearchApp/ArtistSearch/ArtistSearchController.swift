@@ -27,6 +27,12 @@ class ArtistSearchController: UIViewController {
             .bind(to: viewModel.input.searchText)
             .disposed(by: disposeBag)
         
+        viewModel.output.artists.drive(tableView.rx.items) { tableView, row, artist in
+            let cell = UITableViewCell()
+            cell.textLabel?.text = artist.artistName
+            return cell
+        }.disposed(by: disposeBag)
+        
     }
     
     private func setupView() {

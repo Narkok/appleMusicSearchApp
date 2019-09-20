@@ -11,29 +11,37 @@ import RxSwift
 
 class ArtistSearchViewModel {
     
-    private let dataManager = AppleMusicDataManager()
+    static private let dataManager = AppleMusicDataManager()
     
     
     struct Input {
         let searchText = PublishRelay<String>()
     }
     
-//    struct Output {
-//        let text: Driver<String>
-//    }
+    struct Output {
+        let artists: Driver<[Artist]>
+    }
     
     let input = Input()
-//    let output: Output
+    let output: Output
     
     
     init() {
         let artistToSearch = input.searchText
             .distinctUntilChanged()
             .debounce(.milliseconds(800), scheduler: MainScheduler.instance)
-            .asDriver(onErrorJustReturn: "Error")
         
-//        output = Output(text: artistToSearch)
+        /// Результат запроса
+        let responseResult = artistToSearch.flatMapLatest { name -> PublishRelay<Event<[Artist]>> in
+            return ArtistSearchViewModel.dataManager.getArtistList(byName: name, withOffset: 0)
+        }.share()
         
-        dataManager.getArtistList(byName: "lana", withOffset: 0)
+        /// Список полученных исполнителей
+        let artists = responseResult
+            .map { $0.element }
+            .filter { $0 != nil }
+            .map{ $0! }
+        
+        output = Output(artists: artists.asDriver(onErrorJustReturn: []))
     }
 }

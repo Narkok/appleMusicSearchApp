@@ -6,10 +6,14 @@
 //  Copyright © 2019 NRKK dev.studio. All rights reserved.
 //
 
+
+struct ArtistsResponse: Codable {
+    let results: [Artist]
+}
+
 struct Artist: Codable {
     let artistName: String
     let artistLinkUrl: String
     let artistId: Int
-    let amgArtistId: Int
     let primaryGenreName: String
 }

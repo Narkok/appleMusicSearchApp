@@ -11,26 +11,30 @@ import RxCocoa
 import Moya
 
 class AppleMusicDataManager {
-    let artistListResult = PublishRelay<Event<[Artist]>>()
+    
+    private let artistListResult = PublishRelay<Event<[Artist]>>()
     static private let provider = MoyaProvider<AppleMusicAPIRequest>()
     
-    func getArtistList(byName name: String, withOffset offset: Int) {
+    func getArtistList(byName name: String, withOffset offset: Int) -> PublishRelay<Event<[Artist]>> {
         AppleMusicDataManager.provider.request(.searchArtist(name: name, offset: offset), completion: { [weak self] result in
             guard let self = self else { return }
-            
+        
             switch result {
             case .success(let response):
-                print(response)
-                guard let returnData = String(data: response.data, encoding: .utf8) else { return }
-                print(returnData)
-                
+                do {
+                    let data = try JSONDecoder().decode(ArtistsResponse.self, from: response.data)
+                    self.artistListResult.accept(.next(data.results))
+                }
+                catch { self.artistListResult.accept(.error(AMDMError(message: "Ошибка при парсинге данных: \(error)"))) }
             case .failure: self.artistListResult.accept(.error(AMDMError(message: "Ошибка при запросе данных")))
-                
             }
         })
+        
+        return artistListResult
     }
-    
-    struct AMDMError: Error {
-        let message: String
-    }
+}
+
+
+struct AMDMError: Error {
+    let message: String
 }
