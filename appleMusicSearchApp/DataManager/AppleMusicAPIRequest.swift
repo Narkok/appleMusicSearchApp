@@ -25,19 +25,18 @@ extension AppleMusicAPIRequest: TargetType {
         }
     }
     
-    var parameters: [String: Any]? {
+    var task: Task {
         switch self {
         case .searchArtist(let name, let offset):
-            return ["term": name,
-                    "entity": "musicArtist",
-                    "limit": 50,
-                    "offset": offset
-            ]
+            return .requestParameters(parameters: ["term": name,
+                                                   "entity": "musicArtist",
+                                                   "limit": 50,
+                                                   "offset": offset],
+                                      encoding: URLEncoding.default)
         }
     }
     
-    var method: Method { return .get }
+    var method: Moya.Method { return .get }
     var sampleData: Data { return "{}".data(using: .utf8)! }
-    var task: Task { return .requestPlain }
     var headers: [String : String]? { return ["Content-Type": "application/json"] }
 }
