@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,31 +10,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArtistSearchController" customModule="appleMusicSearchApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArtistInfoController" customModule="appleMusicSearchApp" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="okr-f0-a1j" id="5dp-vy-RGD"/>
+                <outlet property="tableView" destination="cRP-SS-nhD" id="bRr-zy-ruC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="66" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="okr-f0-a1j">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cRP-SS-nhD">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="okr-f0-a1j" secondAttribute="bottom" constant="-34" id="44D-wJ-eG5"/>
-                <constraint firstItem="okr-f0-a1j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WZ4-7j-uBP"/>
-                <constraint firstItem="okr-f0-a1j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aeH-JU-KcY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="okr-f0-a1j" secondAttribute="trailing" id="gew-6Q-iQa"/>
+                <constraint firstItem="cRP-SS-nhD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="BFT-NS-oF1"/>
+                <constraint firstItem="cRP-SS-nhD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ji5-W6-PY0"/>
+                <constraint firstAttribute="bottom" secondItem="cRP-SS-nhD" secondAttribute="bottom" id="RTr-5Z-h9a"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cRP-SS-nhD" secondAttribute="trailing" id="T9J-X2-Cmb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="55.200000000000003" y="39.90147783251232"/>
         </view>
     </objects>
 </document>

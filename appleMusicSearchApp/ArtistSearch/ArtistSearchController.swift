@@ -22,9 +22,10 @@ class ArtistSearchController: UIViewController {
         super.viewDidLoad()
         
         /// Настройка навбара
-        title = "Search artist"
+        navigationItem.title = "Search artist"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         
         
@@ -42,6 +43,16 @@ class ArtistSearchController: UIViewController {
             cell.genreLabel.text = artist.primaryGenreName
             return cell
         }.disposed(by: disposeBag)
+        
+        
+        /// Переход на экран исполнителя
+        tableView.rx.modelSelected(Artist.self)
+            .subscribe(onNext:{ [weak self] artist in
+                guard let self = self else { return }
+                let artistInfoController = ArtistInfoController()
+                artistInfoController.artist = artist
+                self.navigationController?.pushViewController(artistInfoController, animated: true)
+            }).disposed(by: disposeBag)
         
     }
 }
