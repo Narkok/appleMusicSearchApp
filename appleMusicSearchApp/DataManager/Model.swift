@@ -13,7 +13,7 @@ struct ArtistsResponse: Codable {
 
 struct Artist: Codable {
     let artistName: String
-    let artistLinkUrl: String
-    let artistId: Int
+//    let artistLinkUrl: String
+//    let artistId: Int
     let primaryGenreName: String
 }

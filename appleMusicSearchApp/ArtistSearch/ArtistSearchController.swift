@@ -20,25 +20,29 @@ class ArtistSearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         
+        /// Настройка навбара
+        title = "Search artist"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        
+        /// Введенная в поиск строка
         searchController.searchBar.rx.text
             .orEmpty
             .bind(to: viewModel.input.searchText)
             .disposed(by: disposeBag)
         
+        
+        /// Заполнение таблицы
         viewModel.output.artists.drive(tableView.rx.items) { tableView, row, artist in
-            let cell = UITableViewCell()
-            cell.textLabel?.text = artist.artistName
+            let cell = tableView.getCell(forClass: ArtistCell.self)
+            cell.nameLabel.text = artist.artistName
+            cell.genreLabel.text = artist.primaryGenreName
             return cell
         }.disposed(by: disposeBag)
         
-    }
-    
-    private func setupView() {
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.dimsBackgroundDuringPresentation = false
     }
 }
 

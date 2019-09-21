@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let artistSearchController = ArtistSearchController()
         let navController = UINavigationController(rootViewController: artistSearchController)
         navController.navigationBar.prefersLargeTitles = true
-        artistSearchController.title = "Поиск исполнителя"
         window!.rootViewController = navController
         window!.makeKeyAndVisible()
         return true

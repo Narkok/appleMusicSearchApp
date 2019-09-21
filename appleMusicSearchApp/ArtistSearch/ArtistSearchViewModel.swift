@@ -27,14 +27,18 @@ class ArtistSearchViewModel {
     
     
     init() {
+        
+        /// Имя исполнителя
         let artistToSearch = input.searchText
             .distinctUntilChanged()
             .debounce(.milliseconds(800), scheduler: MainScheduler.instance)
+        
         
         /// Результат запроса
         let responseResult = artistToSearch.flatMapLatest { name -> PublishRelay<Event<[Artist]>> in
             return ArtistSearchViewModel.dataManager.getArtistList(byName: name, withOffset: 0)
         }.share()
+        
         
         /// Список полученных исполнителей
         let artists = responseResult
