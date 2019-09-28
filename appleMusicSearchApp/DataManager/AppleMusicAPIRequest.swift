@@ -12,6 +12,8 @@ private let appleMusicBaseURL = URL(string: "https://itunes.apple.com")!
 
 enum AppleMusicAPIRequest {
     case searchArtist(name: String, offset: Int)
+    case searchSongs(id: Int)
+    case searchAlbums(id: Int)
 }
 
 
@@ -22,6 +24,8 @@ extension AppleMusicAPIRequest: TargetType {
         switch self {
         case .searchArtist:
             return "search"
+        case .searchSongs, .searchAlbums:
+            return "lookup"
         }
     }
     
@@ -32,6 +36,16 @@ extension AppleMusicAPIRequest: TargetType {
                                                    "entity": "musicArtist",
                                                    "limit": 50,
                                                    "offset": offset],
+                                      encoding: URLEncoding.default)
+            
+        case .searchSongs(let id):
+            return .requestParameters(parameters: ["id": id,
+                                                   "entity": "song"],
+                                      encoding: URLEncoding.default)
+            
+        case .searchAlbums(let id):
+            return .requestParameters(parameters: ["id": id,
+                                                   "entity": "album"],
                                       encoding: URLEncoding.default)
         }
     }

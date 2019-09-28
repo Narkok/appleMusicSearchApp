@@ -13,7 +13,7 @@ class ArtistSearchViewModel {
     
     static private let dataManager = AppleMusicDataManager()
     
-    
+
     struct Input {
         let searchText = PublishRelay<String>()
     }
@@ -32,6 +32,7 @@ class ArtistSearchViewModel {
         let artistToSearch = input.searchText
             .distinctUntilChanged()
             .debounce(.milliseconds(800), scheduler: MainScheduler.instance)
+            .startWith("Avenged")
         
         
         /// Результат запроса

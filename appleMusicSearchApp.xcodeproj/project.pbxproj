@@ -143,8 +143,8 @@
 		EB6B84672336217400E5C150 /* ArtistInfo */ = {
 			isa = PBXGroup;
 			children = (
-				EB6B84682336222F00E5C150 /* ArtistInfoController.swift */,
 				EB6B846C2336225A00E5C150 /* ArtistInfoViewModel.swift */,
+				EB6B84682336222F00E5C150 /* ArtistInfoController.swift */,
 				EB6B84692336222F00E5C150 /* ArtistInfoController.xib */,
 			);
 			path = ArtistInfo;
@@ -444,7 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = NRKK.appleMusicSearchApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -463,7 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = NRKK.appleMusicSearchApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
