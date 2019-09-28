@@ -23,18 +23,32 @@ class ArtistInfoController: UIViewController {
         guard let artist = artist else { return }
         title = artist.artistName
         
+        
         /// Загрузить список песен и альбомов исполнителя
         viewModel.input.loadDataForArtistID.accept(artist.artistId)
         
-        viewModel.output.songs.drive(onNext:{
-            $0.forEach { print ($0.trackName) }
-            print("====")
-        }).disposed(by: disposeBag)
         
-        viewModel.output.albums.drive(onNext:{
-            $0.forEach { print ($0.collectionName) }
-            print("====")
-        }).disposed(by: disposeBag)
+        /// Заполнение tableView
+        viewModel.output.cells.drive(tableView.rx.items) { [unowned self] tableView, row, cellType in
+            
+            switch cellType {
+            case .albums(let list):
+//                return self.getAlbumsCell(with: list)
+                return UITableViewCell()
+                break
+            case .song(let info):
+                return self.getSongCell(with: info)
+            }
+        }.disposed(by: disposeBag)
+        
+    }
+    
+    
+    private func getSongCell(with song: Song) -> UITableViewCell {
+        let cell = tableView.getCell(forClass: SongCell.self)
+        cell.songTitleLabel.text = song.trackName
+        cell.songAlbumLabel.text = song.collectionName
+        return cell
     }
 }
 

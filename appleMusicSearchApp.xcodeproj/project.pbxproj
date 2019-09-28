@@ -17,6 +17,8 @@
 		B8ADA75823299C320094EA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADA75723299C320094EA83 /* AppDelegate.swift */; };
 		B8ADA75F23299C330094EA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADA75E23299C330094EA83 /* Assets.xcassets */; };
 		B8ADA76223299C330094EA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8ADA76023299C330094EA83 /* LaunchScreen.storyboard */; };
+		EB33CBFA233F6CDF0096CA53 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33CBF8233F6CDF0096CA53 /* SongCell.swift */; };
+		EB33CBFB233F6CDF0096CA53 /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB33CBF9233F6CDF0096CA53 /* SongCell.xib */; };
 		EB6B8461233613F900E5C150 /* UITableView+GetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B8460233613F900E5C150 /* UITableView+GetCell.swift */; };
 		EB6B84652336144400E5C150 /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B84632336144400E5C150 /* ArtistCell.swift */; };
 		EB6B84662336144400E5C150 /* ArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB6B84642336144400E5C150 /* ArtistCell.xib */; };
@@ -40,6 +42,8 @@
 		B8ADA76123299C330094EA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8ADA76323299C330094EA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEF9693ECFFEE0513B311E0F /* Pods-appleMusicSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleMusicSearchApp.debug.xcconfig"; path = "Target Support Files/Pods-appleMusicSearchApp/Pods-appleMusicSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
+		EB33CBF8233F6CDF0096CA53 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		EB33CBF9233F6CDF0096CA53 /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
 		EB6B8460233613F900E5C150 /* UITableView+GetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+GetCell.swift"; sourceTree = "<group>"; };
 		EB6B84632336144400E5C150 /* ArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 		EB6B84642336144400E5C150 /* ArtistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistCell.xib; sourceTree = "<group>"; };
@@ -131,6 +135,15 @@
 			path = appleMusicSearchApp;
 			sourceTree = "<group>";
 		};
+		EB33CBF7233F6CBF0096CA53 /* SongCell */ = {
+			isa = PBXGroup;
+			children = (
+				EB33CBF8233F6CDF0096CA53 /* SongCell.swift */,
+				EB33CBF9233F6CDF0096CA53 /* SongCell.xib */,
+			);
+			path = SongCell;
+			sourceTree = "<group>";
+		};
 		EB6B84622336142600E5C150 /* ArtistCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +156,7 @@
 		EB6B84672336217400E5C150 /* ArtistInfo */ = {
 			isa = PBXGroup;
 			children = (
+				EB33CBF7233F6CBF0096CA53 /* SongCell */,
 				EB6B846C2336225A00E5C150 /* ArtistInfoViewModel.swift */,
 				EB6B84682336222F00E5C150 /* ArtistInfoController.swift */,
 				EB6B84692336222F00E5C150 /* ArtistInfoController.xib */,
@@ -212,6 +226,7 @@
 			files = (
 				B862D0A7232ADD6B007C5E2C /* ArtistSearchController.xib in Resources */,
 				B8ADA76223299C330094EA83 /* LaunchScreen.storyboard in Resources */,
+				EB33CBFB233F6CDF0096CA53 /* SongCell.xib in Resources */,
 				EB6B84662336144400E5C150 /* ArtistCell.xib in Resources */,
 				EB6B846B2336222F00E5C150 /* ArtistInfoController.xib in Resources */,
 				B8ADA75F23299C330094EA83 /* Assets.xcassets in Resources */,
@@ -287,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B862D0A6232ADD6B007C5E2C /* ArtistSearchController.swift in Sources */,
+				EB33CBFA233F6CDF0096CA53 /* SongCell.swift in Sources */,
 				B8ADA75823299C320094EA83 /* AppDelegate.swift in Sources */,
 				EB6B84652336144400E5C150 /* ArtistCell.swift in Sources */,
 				EB6B846A2336222F00E5C150 /* ArtistInfoController.swift in Sources */,

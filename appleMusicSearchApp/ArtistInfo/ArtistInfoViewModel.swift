@@ -20,8 +20,7 @@ class ArtistInfoViewModel {
     }
     
     struct Output {
-        let songs: Driver<[Song]>
-        let albums: Driver<[Album]>
+        let cells: Driver<[CellType]>
     }
     
     let input = Input()
@@ -43,8 +42,6 @@ class ArtistInfoViewModel {
             .filter { $0 != nil }
             .map{ $0! }
             .map { $0.filter { $0.wrapperType == "track" } }
-            .asDriver(onErrorJustReturn: [])
-        songs.drive().disposed(by: disposeBag)
         
         
         /// Загрузка списка альбомов
@@ -60,9 +57,32 @@ class ArtistInfoViewModel {
             .filter { $0 != nil }
             .map{ $0! }
             .map { $0.filter { $0.wrapperType == "collection" } }
-            .asDriver(onErrorJustReturn: [])
-        albums.drive().disposed(by: disposeBag)
         
-        output = Output(songs: songs, albums: albums)
+        
+        /// Комбинированный список из песен и альбомов
+        let result = Observable.combineLatest(albums, songs)
+            .map { (albums: $0, songs: $1) }
+        result.subscribe().disposed(by: disposeBag)
+        
+        /// Список ячеек для tableView
+        let cells = result.map { result -> [CellType] in
+            var cells = [CellType]()
+            cells.append(.albums(list: result.albums))
+            result.songs.forEach { cells.append(.song(info: $0)) }
+            return cells
+        }.asDriver(onErrorJustReturn: [])
+        
+        output = Output(cells: cells)
+    }
+}
+
+
+extension ArtistInfoViewModel {
+    /// Типы ячеек для tableView
+    enum CellType {
+        /// Ячейка со списком альбомов
+        case albums(list: [Album])
+        /// Ячейка песни
+        case song(info: Song)
     }
 }
