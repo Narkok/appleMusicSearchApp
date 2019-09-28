@@ -17,7 +17,7 @@ class ArtistInfoController: UIViewController {
     
     var artist: Artist?
     private let viewModel = ArtistInfoViewModel()
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +29,16 @@ class ArtistInfoController: UIViewController {
         viewModel.input.loadDataForArtistID.accept(artist.artistId)
         
         
+        /// Анимированно показать результат
+        viewModel.output.cells.drive(onNext:{ _ in
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                self?.tableView.alpha = 1
+            })
+        }).disposed(by: disposeBag)
+        
+        
         /// Заполнение tableView
         viewModel.output.cells.drive(tableView.rx.items) { [unowned self] tableView, row, cellType in
-            
             switch cellType {
             case .albums(let list): return self.getAlbumsCell(with: list)
             case .song(let info): return self.getSongCell(with: info)
@@ -41,6 +48,7 @@ class ArtistInfoController: UIViewController {
     }
     
     
+    /// Генерация ячейки для списка альбомов
     private func getAlbumsCell(with albumsList: [Album]) -> UITableViewCell {
         let cell = tableView.getCell(forClass: AlbumsCell.self)
         cell.setup(albums: albumsList)
@@ -48,6 +56,7 @@ class ArtistInfoController: UIViewController {
     }
     
     
+    /// Генерация ячейки для песни
     private func getSongCell(with song: Song) -> UITableViewCell {
         let cell = tableView.getCell(forClass: SongCell.self)
         cell.songTitleLabel.text = song.trackName

@@ -36,6 +36,13 @@ class ArtistSearchController: UIViewController {
             .disposed(by: disposeBag)
         
         
+        /// Обнуление offset, если строка была изменена
+        searchController.searchBar.rx.text
+            .map { _ in 0 }
+            .bind(to: viewModel.input.offset)
+            .disposed(by: disposeBag)
+        
+        
         /// Заполнение таблицы
         viewModel.output.artists.drive(tableView.rx.items) { tableView, row, artist in
             let cell = tableView.getCell(forClass: ArtistCell.self)
@@ -47,12 +54,23 @@ class ArtistSearchController: UIViewController {
         
         /// Переход на экран исполнителя
         tableView.rx.modelSelected(Artist.self)
-            .subscribe(onNext:{ [weak self] artist in
-                guard let self = self else { return }
+            .subscribe(onNext:{ [unowned self] artist in
                 let artistInfoController = ArtistInfoController()
                 artistInfoController.artist = artist
                 self.navigationController?.pushViewController(artistInfoController, animated: true)
             }).disposed(by: disposeBag)
+        
+        
+        /// Достижение конца списка
+        tableView.rx.willDisplayCell
+            .filter { [unowned self] cell -> Bool in
+                return cell.indexPath.row == self.tableView.numberOfRows(inSection: 0) - 1
+            }
+            .map { $0.indexPath.row + 1 }
+            .distinctUntilChanged()
+            .bind(to: viewModel.input.offset)
+            .disposed(by: disposeBag)
+        
         
     }
 }

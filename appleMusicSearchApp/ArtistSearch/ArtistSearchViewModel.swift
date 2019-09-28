@@ -11,41 +11,56 @@ import RxSwift
 
 class ArtistSearchViewModel {
     
+    /// Массив исполнителей
+    static private var artists = [Artist]()
+    
+    /// DataManager для загрузки списка иполнителей
     static private let dataManager = AppleMusicDataManager()
     
 
+    /// Входы из контроллера
     struct Input {
         let searchText = PublishRelay<String>()
+        let offset = BehaviorRelay<Int>(value: 0)
     }
     
+    /// Выходы в контроллер
     struct Output {
         let artists: Driver<[Artist]>
     }
     
     let input = Input()
     let output: Output
-    
+
     
     init() {
         
-        /// Имя исполнителя
+        /// Имя исполнителя для поиска
         let artistToSearch = input.searchText
-            .distinctUntilChanged()
-            .debounce(.milliseconds(800), scheduler: MainScheduler.instance)
-            .startWith("Avenged")
         
         
         /// Результат запроса
-        let responseResult = artistToSearch.flatMapLatest { name -> PublishRelay<Event<[Artist]>> in
-            return ArtistSearchViewModel.dataManager.getArtistList(byName: name, withOffset: 0)
-        }.share()
+        let responseResult = Observable.combineLatest(artistToSearch, input.offset)
+            .debounce(.milliseconds(800), scheduler: MainScheduler.instance)
+            .flatMapLatest { name, offset -> PublishRelay<Event<[Artist]>> in
+                /// Очистить список, если offset == 0
+                if offset == 0 { ArtistSearchViewModel.artists = [] }
+                /// Загрузить и вернуть список исполнителей
+                return ArtistSearchViewModel.dataManager.getArtistList(byName: name, withOffset: offset)
+            }.share()
         
-        
+    
         /// Список полученных исполнителей
         let artists = responseResult
             .map { $0.element }
             .filter { $0 != nil }
-            .map{ $0! }
+            .map { $0! }
+            .map { newPage -> [Artist] in
+                /// Добавление новых загруженных исполнителей к списку имеющихся
+                ArtistSearchViewModel.artists += newPage
+                return ArtistSearchViewModel.artists
+            }
+        
         
         output = Output(artists: artists.asDriver(onErrorJustReturn: []))
     }

@@ -11,14 +11,16 @@ import RxSwift
 
 class ArtistInfoViewModel {
     
+    /// DataManager для загрузки списка песен и альбомов
     static private let dataManager = AppleMusicDataManager()
     private let disposeBag = DisposeBag()
     
-    
+    /// Входы из контроллера
     struct Input {
         let loadDataForArtistID = PublishRelay<Int>()
     }
     
+    /// Выходы в контроллер
     struct Output {
         let cells: Driver<[CellType]>
     }
@@ -64,6 +66,7 @@ class ArtistInfoViewModel {
             .map { (albums: $0, songs: $1) }
         result.subscribe().disposed(by: disposeBag)
         
+        
         /// Список ячеек для tableView
         let cells = result.map { result -> [CellType] in
             var cells = [CellType]()
@@ -71,6 +74,7 @@ class ArtistInfoViewModel {
             result.songs.forEach { cells.append(.song(info: $0)) }
             return cells
         }.asDriver(onErrorJustReturn: [])
+        
         
         output = Output(cells: cells)
     }
