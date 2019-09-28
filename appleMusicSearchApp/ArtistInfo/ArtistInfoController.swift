@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class ArtistInfoController: UIViewController {
 
@@ -48,6 +49,7 @@ class ArtistInfoController: UIViewController {
         let cell = tableView.getCell(forClass: SongCell.self)
         cell.songTitleLabel.text = song.trackName
         cell.songAlbumLabel.text = song.collectionName
+        if let artworkUrl = song.artworkUrl100, let url = URL(string: artworkUrl) { cell.albumImageView.kf.setImage(with: url) }
         return cell
     }
 }
