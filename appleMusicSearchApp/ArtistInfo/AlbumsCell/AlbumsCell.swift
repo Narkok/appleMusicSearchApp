@@ -12,17 +12,13 @@ class AlbumsCell: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
     
+    /// Настройка ячейки по альбому
     func setup(albums: [Album]) {
-        
-        
         for album in albums {
-//            print(album)
             let albumView = AlbumView()
-            
             albumView.albumNameLabel.text = album.collectionName
             if let artworkUrl = album.artworkUrl100, let url = URL(string: artworkUrl) { albumView.albumImageView.kf.setImage(with: url) }
             stackView.addArrangedSubview(albumView)
         }
     }
-    
 }
