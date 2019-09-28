@@ -33,15 +33,18 @@ class ArtistInfoController: UIViewController {
         viewModel.output.cells.drive(tableView.rx.items) { [unowned self] tableView, row, cellType in
             
             switch cellType {
-            case .albums(let list):
-//                return self.getAlbumsCell(with: list)
-                return UITableViewCell()
-                break
-            case .song(let info):
-                return self.getSongCell(with: info)
+            case .albums(let list): return self.getAlbumsCell(with: list)
+            case .song(let info): return self.getSongCell(with: info)
             }
         }.disposed(by: disposeBag)
         
+    }
+    
+    
+    private func getAlbumsCell(with albumsList: [Album]) -> UITableViewCell {
+        let cell = tableView.getCell(forClass: AlbumsCell.self)
+        cell.setup(albums: albumsList)
+        return cell
     }
     
     

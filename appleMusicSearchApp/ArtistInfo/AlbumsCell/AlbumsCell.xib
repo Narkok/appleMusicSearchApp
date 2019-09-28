@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="201" id="KGk-i7-Jjw" customClass="AlbumsCell" customModule="appleMusicSearchApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="201"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="437" height="200.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-Ej-YcE">
+                        <rect key="frame" x="0.0" y="0.0" width="437" height="200.5"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AQ-b8-ETm">
+                                <rect key="frame" x="0.0" y="20" width="437" height="160.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vTX-X6-W0u">
+                                        <rect key="frame" x="17" y="0.0" width="400" height="160.5"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="vTX-X6-W0u" secondAttribute="bottom" id="Hv4-aO-jlb"/>
+                                    <constraint firstAttribute="trailing" secondItem="vTX-X6-W0u" secondAttribute="trailing" constant="16" id="OXo-9M-1sW"/>
+                                    <constraint firstItem="vTX-X6-W0u" firstAttribute="leading" secondItem="9AQ-b8-ETm" secondAttribute="leading" constant="16" id="YCa-li-RX8"/>
+                                    <constraint firstItem="vTX-X6-W0u" firstAttribute="top" secondItem="9AQ-b8-ETm" secondAttribute="top" id="Z58-AZ-ASQ"/>
+                                    <constraint firstItem="vTX-X6-W0u" firstAttribute="centerY" secondItem="9AQ-b8-ETm" secondAttribute="centerY" id="vja-jC-Mf7"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9AQ-b8-ETm" firstAttribute="leading" secondItem="9fR-Ej-YcE" secondAttribute="leading" id="1Z9-yG-rRH"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="230" id="85s-3o-Mes"/>
+                            <constraint firstAttribute="bottom" secondItem="9AQ-b8-ETm" secondAttribute="bottom" constant="20" id="Xxr-wh-7MF"/>
+                            <constraint firstAttribute="trailing" secondItem="9AQ-b8-ETm" secondAttribute="trailing" id="Y5S-Z9-2KG"/>
+                            <constraint firstItem="9AQ-b8-ETm" firstAttribute="top" secondItem="9fR-Ej-YcE" secondAttribute="top" constant="20" id="lXB-5d-Wrf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9fR-Ej-YcE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6XL-pu-bNw"/>
+                    <constraint firstAttribute="trailing" secondItem="9fR-Ej-YcE" secondAttribute="trailing" id="6wU-ER-Ibw"/>
+                    <constraint firstItem="9fR-Ej-YcE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="O3w-rZ-LvS"/>
+                    <constraint firstAttribute="bottom" secondItem="9fR-Ej-YcE" secondAttribute="bottom" id="Xq7-1q-u7E"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="stackView" destination="vTX-X6-W0u" id="R0m-OV-D5C"/>
+            </connections>
+            <point key="canvasLocation" x="222.46376811594206" y="205.24553571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,11 @@
 		EB6B846A2336222F00E5C150 /* ArtistInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B84682336222F00E5C150 /* ArtistInfoController.swift */; };
 		EB6B846B2336222F00E5C150 /* ArtistInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB6B84692336222F00E5C150 /* ArtistInfoController.xib */; };
 		EB6B846D2336225A00E5C150 /* ArtistInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6B846C2336225A00E5C150 /* ArtistInfoViewModel.swift */; };
+		EB8A903E233F7C6F003098A0 /* AlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A903C233F7C6F003098A0 /* AlbumsCell.swift */; };
+		EB8A903F233F7C6F003098A0 /* AlbumsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8A903D233F7C6F003098A0 /* AlbumsCell.xib */; };
+		EB8A9041233F80FC003098A0 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A9040233F80FC003098A0 /* AlbumView.swift */; };
+		EB8A9043233F8124003098A0 /* AlbumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8A9042233F8124003098A0 /* AlbumView.xib */; };
+		EB8A9045233F8182003098A0 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8A9044233F8182003098A0 /* NibView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		EB6B84682336222F00E5C150 /* ArtistInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoController.swift; sourceTree = "<group>"; };
 		EB6B84692336222F00E5C150 /* ArtistInfoController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistInfoController.xib; sourceTree = "<group>"; };
 		EB6B846C2336225A00E5C150 /* ArtistInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInfoViewModel.swift; sourceTree = "<group>"; };
+		EB8A903C233F7C6F003098A0 /* AlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsCell.swift; sourceTree = "<group>"; };
+		EB8A903D233F7C6F003098A0 /* AlbumsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumsCell.xib; sourceTree = "<group>"; };
+		EB8A9040233F80FC003098A0 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		EB8A9042233F8124003098A0 /* AlbumView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumView.xib; sourceTree = "<group>"; };
+		EB8A9044233F8182003098A0 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,7 @@
 			children = (
 				B8ADA75723299C320094EA83 /* AppDelegate.swift */,
 				EB6B8460233613F900E5C150 /* UITableView+GetCell.swift */,
+				EB8A9044233F8182003098A0 /* NibView.swift */,
 				B895B06E23341ABC003AE994 /* DataManager */,
 				B862D0A1232ADC95007C5E2C /* ArtistSearch */,
 				EB6B84672336217400E5C150 /* ArtistInfo */,
@@ -156,12 +167,24 @@
 		EB6B84672336217400E5C150 /* ArtistInfo */ = {
 			isa = PBXGroup;
 			children = (
+				EB8A903A233F7C47003098A0 /* AlbumsCell */,
 				EB33CBF7233F6CBF0096CA53 /* SongCell */,
 				EB6B846C2336225A00E5C150 /* ArtistInfoViewModel.swift */,
 				EB6B84682336222F00E5C150 /* ArtistInfoController.swift */,
 				EB6B84692336222F00E5C150 /* ArtistInfoController.xib */,
 			);
 			path = ArtistInfo;
+			sourceTree = "<group>";
+		};
+		EB8A903A233F7C47003098A0 /* AlbumsCell */ = {
+			isa = PBXGroup;
+			children = (
+				EB8A903C233F7C6F003098A0 /* AlbumsCell.swift */,
+				EB8A903D233F7C6F003098A0 /* AlbumsCell.xib */,
+				EB8A9040233F80FC003098A0 /* AlbumView.swift */,
+				EB8A9042233F8124003098A0 /* AlbumView.xib */,
+			);
+			path = AlbumsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +247,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8A903F233F7C6F003098A0 /* AlbumsCell.xib in Resources */,
 				B862D0A7232ADD6B007C5E2C /* ArtistSearchController.xib in Resources */,
+				EB8A9043233F8124003098A0 /* AlbumView.xib in Resources */,
 				B8ADA76223299C330094EA83 /* LaunchScreen.storyboard in Resources */,
 				EB33CBFB233F6CDF0096CA53 /* SongCell.xib in Resources */,
 				EB6B84662336144400E5C150 /* ArtistCell.xib in Resources */,
@@ -288,11 +313,14 @@
 				EB6B84652336144400E5C150 /* ArtistCell.swift in Sources */,
 				EB6B846A2336222F00E5C150 /* ArtistInfoController.swift in Sources */,
 				B862D0A3232ADD3B007C5E2C /* ArtistSearchViewModel.swift in Sources */,
+				EB8A9045233F8182003098A0 /* NibView.swift in Sources */,
+				EB8A9041233F80FC003098A0 /* AlbumView.swift in Sources */,
 				EB6B8461233613F900E5C150 /* UITableView+GetCell.swift in Sources */,
 				B895B07023341B4B003AE994 /* Model.swift in Sources */,
 				EB6B846D2336225A00E5C150 /* ArtistInfoViewModel.swift in Sources */,
 				B895B07423342213003AE994 /* AppleMusicDataManager.swift in Sources */,
 				B895B07223341E67003AE994 /* AppleMusicAPIRequest.swift in Sources */,
+				EB8A903E233F7C6F003098A0 /* AlbumsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
