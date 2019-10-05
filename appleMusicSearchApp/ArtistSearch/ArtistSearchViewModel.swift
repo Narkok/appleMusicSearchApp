@@ -62,6 +62,13 @@ class ArtistSearchViewModel {
             }
         
         
+        /// Ошибка
+        let error = responseResult
+            .map { $0.error }
+            .filter { $0 != nil }
+            .map { $0 }
+        
+        
         output = Output(artists: artists.asDriver(onErrorJustReturn: []))
     }
 }

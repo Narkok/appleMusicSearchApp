@@ -22,7 +22,7 @@ class ArtistCell: UITableViewCell {
     }
     
     
-    func setup(name: String, genre: String) {
+    func setup(name: String, genre: String?) {
         nameLabel.text = name
         genreLabel.text = genre
     }

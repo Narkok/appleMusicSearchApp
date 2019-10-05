@@ -69,8 +69,6 @@ class ArtistSearchController: UIViewController {
             .distinctUntilChanged()
             .bind(to: viewModel.input.offset)
             .disposed(by: disposeBag)
-        
-        
     }
 }
 
