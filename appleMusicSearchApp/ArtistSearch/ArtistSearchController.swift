@@ -46,8 +46,7 @@ class ArtistSearchController: UIViewController {
         /// Заполнение таблицы
         viewModel.output.artists.drive(tableView.rx.items) { tableView, row, artist in
             let cell = tableView.getCell(forClass: ArtistCell.self)
-            cell.nameLabel.text = artist.artistName
-            cell.genreLabel.text = artist.primaryGenreName
+            cell.setup(name: artist.artistName, genre: artist.primaryGenreName)
             return cell
         }.disposed(by: disposeBag)
         

@@ -59,9 +59,7 @@ class ArtistInfoController: UIViewController {
     /// Генерация ячейки для песни
     private func getSongCell(with song: Song) -> UITableViewCell {
         let cell = tableView.getCell(forClass: SongCell.self)
-        cell.songTitleLabel.text = song.trackName
-        cell.songAlbumLabel.text = song.collectionName
-        if let artworkUrl = song.artworkUrl100, let url = URL(string: artworkUrl) { cell.albumImageView.kf.setImage(with: url) }
+        cell.setup(title: song.trackName, album: song.collectionName, artworkURL: song.artworkUrl100)
         return cell
     }
 }
